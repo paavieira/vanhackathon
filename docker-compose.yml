@@ -1,0 +1,14 @@
+version: '3'
+services:
+  vanhackathon:
+    image: com.paavieira/vanhackathon
+    ports:
+    - "8080:8080"
+    links:
+    - mongo
+    environment:
+    - SPRING_PROFILES_ACTIVE=production
+    - MONGODB_URI=mongodb://mongo:27017/vanhackathon
+  mongo:
+    image: mongo
+    restart: always
